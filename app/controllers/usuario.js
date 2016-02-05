@@ -13,12 +13,13 @@ module.exports = function(app){
           res.status(401).json(naoEncontrado);
         }
 
-        if(usuario.senha != req.body.senha){
+        var hash = app.crypto.createHash('sha1').update(req.body.senha).digest('hex');
+
+        if(usuario.senha != hash){
           res.status(401).json(naoEncontrado);
         }
 
-        usuario.token = '';
-        var token = app.jwt.sign(usuario, app.get('secret'), { expiresIn: 3600 });
+        var token = app.jwt.sign({ email: usuario.email }, app.get('secret'), { expiresIn: 3600 });
         usuario.token = token;
         usuario.ultimo_login = Date.now();
 
@@ -71,8 +72,12 @@ module.exports = function(app){
           res.status(500).json(erro);
         });
     } else {
-      var token = app.jwt.sign(req.body, app.get('secret'), { expiresIn: 3600 });
+      var token = app.jwt.sign({ email: req.body.email }, app.get('secret'), { expiresIn: 3600 });
+
       req.body.token = token;
+
+      var hash = app.crypto.createHash('sha1').update(req.body.senha).digest('hex');
+      req.body.senha = hash;
 
       Usuario.create(req.body)
         .then(function(usuario){

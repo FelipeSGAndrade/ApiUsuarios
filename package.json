@@ -15,5 +15,10 @@
     "jsonwebtoken": "^5.5.4",
     "mongodb": "^2.1.5",
     "mongoose": "^4.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0",
+    "karma": "^0.13.19"
   }
 }
