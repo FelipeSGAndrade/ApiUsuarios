@@ -20,4 +20,8 @@ module.exports = function(app){
       controller.obtemUsuario(req, res, token);
     });
   });
+
+  app.use(function(req, res){
+    res.status(404).json({ "mensagem" : "Enpoint não encontrado"});
+  })
 };
