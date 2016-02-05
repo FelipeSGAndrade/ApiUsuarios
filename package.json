@@ -1,7 +1,7 @@
 {
   "name": "usuarios",
   "version": "1.0.0",
-  "description": "Cadastro de usuarios",
+  "description": "API de usuarios",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.2",
-    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-load": "^1.1.15",
-    "method-override": "^2.3.5",
+    "jsonwebtoken": "^5.5.4",
     "mongodb": "^2.1.5",
     "mongoose": "^4.4.1"
   }
