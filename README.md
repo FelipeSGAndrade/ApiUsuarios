@@ -1,5 +1,5 @@
-# Desafio Concrete Solutions
-API de usuários criada para o desafio da Concrete Solutions
+# API de Usuários
+Desenvolvido em NodeJS
 
 <b>Endpoints</b>
 <br />Sign in: (post) signin
